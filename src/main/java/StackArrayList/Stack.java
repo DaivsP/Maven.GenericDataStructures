@@ -8,9 +8,36 @@ import java.util.ArrayList;
  */
 public class Stack<E> {
     private ArrayList elements;
-
+    Integer counter = 0;
 
     public Stack(){
+        this.elements = new ArrayList();
+    }
 
+    public Boolean isEmpty() {
+        return elements.isEmpty();
+    }
+
+    public void push(E object) {
+        if (elements.isEmpty()){
+            elements.add(object);
+        }
+        else {
+            elements.add(object);
+            counter++;
+        }
+    }
+
+    public E pop() {
+        E element;
+        if (!elements.isEmpty()){
+            element = (E) elements.get(counter);
+            elements.remove(element);
+            counter--;
+        }
+        else {
+            throw new IndexOutOfBoundsException();
+        }
+        return element;
     }
 }
